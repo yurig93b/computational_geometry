@@ -19,3 +19,6 @@ def orient(p1, p2, p3, p4):
 
     return ORIENT_COLL
 
+
+def orient_by_facet(facet, p4):
+    return orient(facet.p1, facet.p2, facet.p3, p4)
