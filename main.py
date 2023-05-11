@@ -1,3 +1,5 @@
+from point import Point
+
 def parse_file(filename):
     with open(filename, 'r') as f:
         l = f.readlines()
