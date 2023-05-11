@@ -1,4 +1,26 @@
+import numpy as np
+
+from dcel import Dcel
 from point import Point
+
+
+def ch(points, point_len):
+    dcel = Dcel(points, [])
+    dcel.pyramid(points[0], points[1], points[2], points[3])
+
+    for i in range(4, point_len):
+        if len(points[i].conflics) == 0:
+            continue
+        else:
+            h = dcel.find_he(points[i])
+            if h != None:
+                dcel.assign_new_facets(h, points[i])
+                dcel.delete_faces(points[i])
+
+    ans = dcel.get_results()
+    for i in ans:
+        print(i[0], i[1], i[2])
+
 
 def parse_file(filename):
     with open(filename, 'r') as f:
