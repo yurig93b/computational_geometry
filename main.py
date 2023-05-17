@@ -6,7 +6,7 @@ from point import Point
 
 def ch(points, point_len):
     dcel = Dcel(points, [])
-    dcel.pyramid(points[0], points[1], points[2], points[3])
+    dcel.simplex(points[0], points[1], points[2], points[3])
 
     for i in range(4, point_len):
         if len(points[i].conflics) == 0:
